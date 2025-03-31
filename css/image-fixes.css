@@ -25,37 +25,43 @@
     background-position: center !important;
 }
 
-.login-container .login-image img {
+/* Imagem de login - apenas se estiver quebrada */
+.login-container .login-image img[src="img/login-bg.jpg"]:not([src^="http"]) {
     content: url('https://images.unsplash.com/photo-1530549387789-4c1017266635?q=80&w=1470&auto=format&fit=crop') !important;
 }
 
-/* Imagens de eventos */
-img[src*="evento1.jpg"],
-img[src*="evento2.jpg"],
-img[src*="evento3.jpg"],
-img[src*="evento4.jpg"],
-img[src*="evento5.jpg"],
-img[src*="evento6.jpg"] {
+/* Imagens de eventos - apenas as que não existem */
+img[src="img/evento1.jpg"]:not([src^="http"]),
+img[src="img/evento2.jpg"]:not([src^="http"]),
+img[src="img/evento3.jpg"]:not([src^="http"]),
+img[src="img/evento4.jpg"]:not([src^="http"]),
+img[src="img/evento5.jpg"]:not([src^="http"]),
+img[src="img/evento6.jpg"]:not([src^="http"]) {
     content: url('https://images.unsplash.com/photo-1594882645126-14020914d58d?q=80&w=1470&auto=format&fit=crop') !important;
 }
 
-/* Placeholders */
+/* Placeholders - apenas quando necessário */
 img[src*="evento-placeholder.jpg"] {
     content: url('https://images.unsplash.com/photo-1594882645126-14020914d58d?q=80&w=1470&auto=format&fit=crop') !important;
 }
 
-img[src*="qrcode-placeholder.jpg"],
-img[src*="qrcode-pix.jpg"] {
+/* QR Code */
+img[src="img/qrcode-pix.jpg"]:not([src^="http"]) {
+    content: url('https://upload.wikimedia.org/wikipedia/commons/d/d0/QR_code_for_mobile_English_Wikipedia.svg') !important;
+    max-width: 200px !important;
+}
+
+img[src="img/qrcode-placeholder.jpg"]:not([src^="http"]) {
     content: url('https://upload.wikimedia.org/wikipedia/commons/d/d0/QR_code_for_mobile_English_Wikipedia.svg') !important;
     max-width: 200px !important;
 }
 
 /* Logo */
-img[src*="logo.png"] {
+img[src="img/logo.png"]:not([src^="http"]) {
     content: url('https://via.placeholder.com/150x50/0066cc/ffffff?text=Meta+Esportes') !important;
 }
 
 /* Avatar placeholder */
-img[src*="avatar-placeholder.jpg"] {
+img[src="img/avatar-placeholder.jpg"]:not([src^="http"]) {
     content: url('https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mp&f=y') !important;
 }
