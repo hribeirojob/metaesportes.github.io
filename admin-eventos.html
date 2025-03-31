@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciar Eventos - Meta Esportes</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/auth.css">
+    <link rel="stylesheet" href="css/admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Cabeçalho -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>Meta Esportes</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Eventos</a></li>
+                    <li><a href="contato.html">Contato</a></li>
+                    <li><a href="login.html" class="btn-login">Login</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Conteúdo Principal -->
+    <main>
+        <section class="admin-header">
+            <div class="container">
+                <h2>Gerenciar Eventos</h2>
+                <p>Visualize, edite ou remova os eventos cadastrados</p>
+                <a href="admin-novo-evento.html" class="btn-novo-evento">
+                    <i class="fas fa-plus"></i> Novo Evento
+                </a>
+            </div>
+        </section>
+
+        <section class="admin-content">
+            <div class="container">
+                <div class="admin-filtros">
+                    <div class="filtro-busca">
+                        <input type="text" id="busca-evento" placeholder="Buscar evento...">
+                        <button id="btn-buscar">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                    <div class="filtro-status">
+                        <select id="filtro-status">
+                            <option value="todos">Todos os status</option>
+                            <option value="ativo">Ativos</option>
+                            <option value="encerrado">Encerrados</option>
+                            <option value="cancelado">Cancelados</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="admin-tabela">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Evento</th>
+                                <th>Data</th>
+                                <th>Local</th>
+                                <th>Status</th>
+                                <th>Inscrições</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tabela-eventos">
+                            <!-- Os eventos serão carregados via JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="admin-paginacao">
+                    <button id="btn-anterior" disabled>
+                        <i class="fas fa-chevron-left"></i> Anterior
+                    </button>
+                    <div class="paginas" id="paginas">
+                        <span class="pagina ativa">1</span>
+                    </div>
+                    <button id="btn-proximo">
+                        Próximo <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Rodapé -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2>Meta Esportes</h2>
+                    <p>Sua plataforma de eventos esportivos</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Links Rápidos</h3>
+                    <ul>
+                        <li><a href="index.html">Eventos</a></li>
+                        <li><a href="contato.html">Contato</a></li>
+                        <li><a href="login.html">Login</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contato</h3>
+                    <p><i class="fas fa-envelope"></i> contato@metaesportes.com.br</p>
+                    <p><i class="fas fa-phone"></i> (34) 3515-1500</p>
+                    <div class="social-media">
+                        <a href="https://www.facebook.com/unipam" target="_blank"><i class="fab fa-facebook"></i></a>
+                        <a href="https://www.instagram.com/unipamnet/?hl=pt" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://twitter.com/UNIPAMNET" target="_blank"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Meta Esportes. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal de confirmação para exclusão -->
+    <div class="modal" id="modal-excluir">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Confirmar Exclusão</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p>Tem certeza que deseja excluir o evento <span id="nome-evento-excluir"></span>?</p>
+                <p class="modal-aviso">Esta ação não pode ser desfeita.</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-cancelar">Cancelar</button>
+                <button class="btn-confirmar" id="btn-confirmar-exclusao">Sim, Excluir</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/auth.js"></script>
+    <script src="js/admin-eventos.js"></script>
+</body>
+</html>

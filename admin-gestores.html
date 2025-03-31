@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciar Gestores | Meta Esportes</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/auth.css">
+    <link rel="stylesheet" href="css/perfil.css">
+    <link rel="stylesheet" href="css/admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <!-- Cabeçalho -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="img/logo.png" alt="Meta Esportes">
+                </a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="eventos.html">Eventos</a></li>
+                    <li><a href="sobre.html">Sobre</a></li>
+                    <li><a href="contato.html">Contato</a></li>
+                    <li><a href="login.html" class="btn-login">Login</a></li>
+                </ul>
+            </nav>
+            <div class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Conteúdo Principal -->
+    <main>
+        <section class="admin-section">
+            <div class="container">
+                <div class="admin-header">
+                    <h2><i class="fas fa-user-shield"></i> Gerenciar Gestores</h2>
+                    <p>Gerencie os usuários com acesso administrativo ao sistema</p>
+                </div>
+
+                <div class="admin-content">
+                    <div class="admin-sidebar">
+                        <div class="admin-menu">
+                            <a href="admin-eventos.html" class="admin-menu-item">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>Gerenciar Eventos</span>
+                            </a>
+                            <a href="admin-novo-evento.html" class="admin-menu-item">
+                                <i class="fas fa-plus-circle"></i>
+                                <span>Novo Evento</span>
+                            </a>
+                            <a href="admin-gestores.html" class="admin-menu-item active">
+                                <i class="fas fa-user-shield"></i>
+                                <span>Gestores</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="admin-main">
+                        <div class="admin-actions">
+                            <button id="btn-novo-gestor" class="btn-primary">
+                                <i class="fas fa-plus"></i> Novo Gestor
+                            </button>
+                            <div class="admin-search">
+                                <input type="text" id="busca-gestor" placeholder="Buscar gestor...">
+                                <button id="btn-buscar" class="btn-secondary">
+                                    <i class="fas fa-search"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="admin-table-container">
+                            <table class="admin-table">
+                                <thead>
+                                    <tr>
+                                        <th>Nome</th>
+                                        <th>Email</th>
+                                        <th>Data de Cadastro</th>
+                                        <th>Status</th>
+                                        <th>Ações</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="gestores-lista">
+                                    <!-- Lista de gestores será carregada via JavaScript -->
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div id="gestores-vazio" class="admin-empty">
+                            <i class="fas fa-user-shield"></i>
+                            <p>Nenhum gestor encontrado</p>
+                        </div>
+
+                        <div class="admin-pagination" id="gestores-paginacao">
+                            <button id="btn-anterior" class="btn-pagination">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <div id="paginas" class="paginas-container">
+                                <!-- Números de página serão adicionados via JavaScript -->
+                            </div>
+                            <button id="btn-proximo" class="btn-pagination">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal para Novo Gestor -->
+    <div id="modal-gestor" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modal-gestor-titulo">Novo Gestor</h3>
+                <span class="modal-close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <form id="form-gestor">
+                    <div class="form-group">
+                        <label for="nome-gestor">Nome Completo</label>
+                        <input type="text" id="nome-gestor" name="nome-gestor" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email-gestor">Email</label>
+                        <input type="email" id="email-gestor" name="email-gestor" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="senha-gestor">Senha</label>
+                        <div class="password-container">
+                            <input type="password" id="senha-gestor" name="senha-gestor" required>
+                            <i class="fas fa-eye toggle-password"></i>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="confirmar-senha-gestor">Confirmar Senha</label>
+                        <div class="password-container">
+                            <input type="password" id="confirmar-senha-gestor" name="confirmar-senha-gestor" required>
+                            <i class="fas fa-eye toggle-password"></i>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="status-gestor">Status</label>
+                        <select id="status-gestor" name="status-gestor">
+                            <option value="ativo">Ativo</option>
+                            <option value="inativo">Inativo</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Permissões</label>
+                        <div class="checkbox-group">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="perm-eventos" name="permissoes" value="eventos" checked>
+                                <label for="perm-eventos">Gerenciar Eventos</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="perm-inscricoes" name="permissoes" value="inscricoes" checked>
+                                <label for="perm-inscricoes">Gerenciar Inscrições</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="perm-gestores" name="permissoes" value="gestores">
+                                <label for="perm-gestores">Gerenciar Gestores</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="btn-cancelar">Cancelar</button>
+                        <button type="submit" class="btn-primary">Salvar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Confirmação de Exclusão -->
+    <div id="modal-excluir" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Excluir Gestor</h3>
+                <span class="modal-close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <p>Tem certeza que deseja excluir o gestor <strong id="nome-gestor-excluir"></strong>?</p>
+                <p>Esta ação não pode ser desfeita.</p>
+                <div class="form-actions">
+                    <button type="button" class="btn-cancelar">Cancelar</button>
+                    <button type="button" id="btn-confirmar-exclusao" class="btn-danger">Excluir</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Rodapé -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="img/logo.png" alt="Meta Esportes">
+                    <p>Sua plataforma completa para eventos esportivos</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Links Rápidos</h3>
+                    <ul>
+                        <li><a href="index.html">Início</a></li>
+                        <li><a href="eventos.html">Eventos</a></li>
+                        <li><a href="sobre.html">Sobre</a></li>
+                        <li><a href="contato.html">Contato</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contato</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Av. Brasil, 1234 - Patos de Minas, MG</p>
+                    <p><i class="fas fa-phone"></i> (34) 3823-0000</p>
+                    <p><i class="fas fa-envelope"></i> contato@metaesportes.com.br</p>
+                </div>
+                <div class="footer-social">
+                    <h3>Redes Sociais</h3>
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com/unipam" target="_blank"><i class="fab fa-facebook"></i></a>
+                        <a href="https://www.instagram.com/unipamnet/?hl=pt" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://twitter.com/UNIPAMNET" target="_blank"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.youtube.com/user/CanalUNIPAM" target="_blank"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Meta Esportes. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/script.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/admin-gestores.js"></script>
+</body>
+</html>

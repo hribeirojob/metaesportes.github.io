@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Novo Evento - Meta Esportes</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/auth.css">
+    <link rel="stylesheet" href="css/admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Cabeçalho -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>Meta Esportes</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Eventos</a></li>
+                    <li><a href="contato.html">Contato</a></li>
+                    <li><a href="login.html" class="btn-login">Login</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Conteúdo Principal -->
+    <main>
+        <section class="admin-header">
+            <div class="container">
+                <h2 id="titulo-pagina">Novo Evento</h2>
+                <p>Preencha os campos abaixo para cadastrar um novo evento</p>
+            </div>
+        </section>
+
+        <section class="admin-content">
+            <div class="container">
+                <form id="form-evento" class="form-evento">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="titulo">Título do Evento*</label>
+                            <input type="text" id="titulo" name="titulo" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="status">Status*</label>
+                            <select id="status" name="status" required>
+                                <option value="ativo">Ativo</option>
+                                <option value="encerrado">Encerrado</option>
+                                <option value="cancelado">Cancelado</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="data">Data do Evento*</label>
+                            <input type="date" id="data" name="data" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="horario">Horário*</label>
+                            <input type="time" id="horario" name="horario" required>
+                        </div>
+                    </div>
+
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="cidade">Cidade*</label>
+                            <input type="text" id="cidade" name="cidade" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="estado">Estado*</label>
+                            <select id="estado" name="estado" required>
+                                <option value="">Selecione</option>
+                                <option value="AC">Acre</option>
+                                <option value="AL">Alagoas</option>
+                                <option value="AP">Amapá</option>
+                                <option value="AM">Amazonas</option>
+                                <option value="BA">Bahia</option>
+                                <option value="CE">Ceará</option>
+                                <option value="DF">Distrito Federal</option>
+                                <option value="ES">Espírito Santo</option>
+                                <option value="GO">Goiás</option>
+                                <option value="MA">Maranhão</option>
+                                <option value="MT">Mato Grosso</option>
+                                <option value="MS">Mato Grosso do Sul</option>
+                                <option value="MG">Minas Gerais</option>
+                                <option value="PA">Pará</option>
+                                <option value="PB">Paraíba</option>
+                                <option value="PR">Paraná</option>
+                                <option value="PE">Pernambuco</option>
+                                <option value="PI">Piauí</option>
+                                <option value="RJ">Rio de Janeiro</option>
+                                <option value="RN">Rio Grande do Norte</option>
+                                <option value="RS">Rio Grande do Sul</option>
+                                <option value="RO">Rondônia</option>
+                                <option value="RR">Roraima</option>
+                                <option value="SC">Santa Catarina</option>
+                                <option value="SP">São Paulo</option>
+                                <option value="SE">Sergipe</option>
+                                <option value="TO">Tocantins</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="endereco">Endereço Completo*</label>
+                        <input type="text" id="endereco" name="endereco" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="descricao">Descrição do Evento*</label>
+                        <textarea id="descricao" name="descricao" rows="5" required></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="imagem">Imagem do Evento*</label>
+                        <div class="upload-area">
+                            <input type="file" id="imagem" name="imagem" accept="image/*">
+                            <div class="upload-preview" id="upload-preview">
+                                <div class="upload-placeholder">
+                                    <i class="fas fa-cloud-upload-alt"></i>
+                                    <p>Arraste uma imagem ou clique para selecionar</p>
+                                    <span>Formatos aceitos: JPG, PNG (máx. 5MB)</span>
+                                </div>
+                                <img id="preview-img" src="" alt="" style="display: none;">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="arquivoGPX">Arquivo GPX do Percurso</label>
+                        <div class="upload-area">
+                            <input type="file" id="arquivoGPX" name="arquivoGPX" accept=".gpx">
+                            <div class="upload-placeholder">
+                                <i class="fas fa-map-marked-alt"></i>
+                                <p>Arraste um arquivo GPX ou clique para selecionar</p>
+                                <span>Formato aceito: GPX (máx. 10MB)</span>
+                            </div>
+                            <div id="gpx-filename" class="file-selected" style="display: none;"></div>
+                        </div>
+                        <p class="form-info">O arquivo GPX será disponibilizado para download na página do evento</p>
+                    </div>
+
+                    <h3>Categorias e Preços</h3>
+                    <p class="form-info">Adicione as categorias disponíveis para este evento</p>
+
+                    <div id="categorias-container">
+                        <!-- Primeira categoria (não pode ser removida) -->
+                        <div class="categoria-item">
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label for="categoria-nome-0">Nome da Categoria*</label>
+                                    <input type="text" id="categoria-nome-0" name="categorias[0][nome]" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="categoria-preco-0">Preço (R$)*</label>
+                                    <input type="number" id="categoria-preco-0" name="categorias[0][preco]" min="0" step="0.01" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="categoria-descricao-0">Descrição da Categoria*</label>
+                                <textarea id="categoria-descricao-0" name="categorias[0][descricao]" rows="2" required></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="button" id="btn-adicionar-categoria" class="btn-adicionar">
+                        <i class="fas fa-plus"></i> Adicionar Categoria
+                    </button>
+
+                    <div class="form-buttons">
+                        <a href="admin-eventos.html" class="btn-cancelar">Cancelar</a>
+                        <button type="submit" class="btn-salvar">Salvar Evento</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Rodapé -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2>Meta Esportes</h2>
+                    <p>Sua plataforma de eventos esportivos</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Links Rápidos</h3>
+                    <ul>
+                        <li><a href="index.html">Eventos</a></li>
+                        <li><a href="contato.html">Contato</a></li>
+                        <li><a href="login.html">Login</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contato</h3>
+                    <p><i class="fas fa-envelope"></i> contato@metaesportes.com.br</p>
+                    <p><i class="fas fa-phone"></i> (34) 3515-1500</p>
+                    <div class="social-media">
+                        <a href="https://www.facebook.com/unipam" target="_blank"><i class="fab fa-facebook"></i></a>
+                        <a href="https://www.instagram.com/unipamnet/?hl=pt" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://twitter.com/UNIPAMNET" target="_blank"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Meta Esportes. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/auth.js"></script>
+    <script src="js/admin-novo-evento.js"></script>
+</body>
+</html>

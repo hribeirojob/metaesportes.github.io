@@ -1,0 +1,954 @@
+/* Estilos para as páginas de administração */
+
+/* Cabeçalho da área administrativa */
+.admin-header {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../img/admin-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    padding: 40px 0;
+    position: relative;
+}
+
+.admin-header h2 {
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+}
+
+.admin-header p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+    max-width: 600px;
+}
+
+.btn-novo-evento {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #0066cc;
+    color: #fff;
+    padding: 12px 20px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background-color 0.3s;
+}
+
+.btn-novo-evento:hover {
+    background-color: #004080;
+}
+
+/* Conteúdo da área administrativa */
+.admin-content {
+    padding: 40px 0;
+    background-color: #f8f9fa;
+    min-height: 500px;
+}
+
+/* Filtros */
+.admin-filtros {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    gap: 20px;
+}
+
+.filtro-busca {
+    display: flex;
+    flex: 1;
+    max-width: 400px;
+}
+
+.filtro-busca input {
+    flex: 1;
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px 0 0 4px;
+    font-size: 1rem;
+}
+
+.filtro-busca button {
+    padding: 10px 15px;
+    background-color: #0066cc;
+    color: #fff;
+    border: none;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+}
+
+.filtro-status select {
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+    min-width: 180px;
+}
+
+/* Tabela de eventos */
+.admin-tabela {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.admin-tabela table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.admin-tabela th {
+    background-color: #f5f5f5;
+    padding: 15px;
+    text-align: left;
+    font-weight: 600;
+    color: #333;
+    border-bottom: 1px solid #ddd;
+}
+
+.admin-tabela td {
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+    color: #666;
+}
+
+.admin-tabela tr:last-child td {
+    border-bottom: none;
+}
+
+.admin-tabela tr:hover {
+    background-color: #f9f9f9;
+}
+
+.evento-titulo {
+    font-weight: 600;
+    color: #333;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.evento-titulo img {
+    width: 60px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e0e0e0;
+}
+
+.evento-status {
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.status-ativo {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.status-encerrado {
+    background-color: #f8f9fa;
+    color: #6c757d;
+}
+
+.status-cancelado {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+.acoes-evento {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-acao {
+    width: 36px;
+    height: 36px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    cursor: pointer;
+    transition: opacity 0.3s;
+}
+
+.btn-acao:hover {
+    opacity: 0.9;
+}
+
+.btn-editar {
+    background-color: #0066cc;
+}
+
+.btn-excluir {
+    background-color: #dc3545;
+}
+
+.btn-visualizar {
+    background-color: #6c757d;
+}
+
+/* Paginação */
+.admin-paginacao {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.admin-paginacao button {
+    padding: 8px 15px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    color: #333;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s;
+}
+
+.admin-paginacao button:hover:not(:disabled) {
+    background-color: #f5f5f5;
+}
+
+.admin-paginacao button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.paginas {
+    display: flex;
+    gap: 5px;
+}
+
+.pagina {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.pagina:hover {
+    background-color: #f5f5f5;
+}
+
+.pagina.ativa {
+    background-color: #0066cc;
+    color: #fff;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal.active {
+    display: flex;
+    animation: fadeIn 0.3s;
+}
+
+.modal-content {
+    background-color: #fff;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 500px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    animation: slideIn 0.3s;
+}
+
+.modal-header {
+    padding: 15px 20px;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-header h3 {
+    margin: 0;
+    color: #333;
+}
+
+.modal-close {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #666;
+}
+
+.modal-body {
+    padding: 20px;
+}
+
+.modal-aviso {
+    color: #dc3545;
+    font-size: 0.9rem;
+    margin-top: 10px;
+}
+
+.modal-footer {
+    padding: 15px 20px;
+    border-top: 1px solid #eee;
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.btn-cancelar {
+    padding: 10px 20px;
+    background-color: #f8f9fa;
+    color: #333;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.3s;
+}
+
+.btn-cancelar:hover {
+    background-color: #e9ecef;
+}
+
+.btn-confirmar {
+    padding: 10px 20px;
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.3s;
+}
+
+.btn-confirmar:hover {
+    background-color: #c82333;
+}
+
+/* Formulário de evento */
+.form-evento {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    padding: 30px;
+}
+
+.form-evento h3 {
+    font-size: 1.3rem;
+    margin: 30px 0 10px;
+    color: #333;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+.form-info {
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.upload-area {
+    border: 2px dashed #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    position: relative;
+    transition: all 0.3s;
+}
+
+.upload-area:hover {
+    border-color: #0066cc;
+}
+
+.upload-area input[type="file"] {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.upload-placeholder {
+    padding: 30px 0;
+}
+
+.upload-placeholder i {
+    font-size: 3rem;
+    color: #0066cc;
+    margin-bottom: 15px;
+}
+
+.upload-placeholder p {
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.upload-placeholder span {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+#preview-img {
+    max-width: 100%;
+    max-height: 300px;
+    border-radius: 4px;
+}
+
+.categoria-item {
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.btn-remover-categoria {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #f8d7da;
+    color: #dc3545;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-remover-categoria:hover {
+    background-color: #dc3545;
+    color: #fff;
+}
+
+.btn-adicionar {
+    background-color: #f8f9fa;
+    color: #0066cc;
+    border: 1px dashed #0066cc;
+    border-radius: 4px;
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s;
+    margin-bottom: 30px;
+}
+
+.btn-adicionar:hover {
+    background-color: #e6f0ff;
+}
+
+.form-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.btn-salvar {
+    padding: 12px 25px;
+    background-color: #0066cc;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-salvar:hover {
+    background-color: #004080;
+}
+
+/* Animações */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .admin-header {
+        padding: 30px 0;
+    }
+    
+    .btn-novo-evento {
+        position: static;
+        transform: none;
+        margin-top: 20px;
+        display: inline-flex;
+    }
+    
+    .admin-filtros {
+        flex-direction: column;
+    }
+    
+    .filtro-busca {
+        max-width: 100%;
+    }
+    
+    .admin-tabela {
+        overflow-x: auto;
+    }
+    
+    .admin-tabela table {
+        min-width: 700px;
+    }
+    
+    .form-grid {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+/* Estilos específicos para a página de gestores */
+.admin-section {
+    padding: 0 0 60px;
+}
+
+.admin-sidebar {
+    width: 250px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    padding: 20px 0;
+    margin-right: 30px;
+}
+
+.admin-menu {
+    display: flex;
+    flex-direction: column;
+}
+
+.admin-menu-item {
+    display: flex;
+    align-items: center;
+    padding: 12px 20px;
+    color: #555;
+    text-decoration: none;
+    transition: all 0.3s;
+    border-left: 3px solid transparent;
+}
+
+.admin-menu-item i {
+    margin-right: 10px;
+    width: 20px;
+    text-align: center;
+}
+
+.admin-menu-item:hover {
+    background-color: #f5f7fa;
+    color: #0066cc;
+}
+
+.admin-menu-item.active {
+    background-color: #f0f7ff;
+    color: #0066cc;
+    border-left-color: #0066cc;
+    font-weight: 600;
+}
+
+.admin-content {
+    display: flex;
+    padding: 0;
+    background-color: transparent;
+}
+
+.admin-main {
+    flex: 1;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    padding: 25px;
+}
+
+.admin-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.admin-search {
+    display: flex;
+    max-width: 400px;
+}
+
+.admin-search input {
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px 0 0 4px;
+    font-size: 1rem;
+    width: 300px;
+}
+
+.admin-search button {
+    padding: 10px 15px;
+    background-color: #0066cc;
+    color: #fff;
+    border: none;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background-color: #0066cc;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.admin-table-container {
+    overflow-x: auto;
+    margin-bottom: 20px;
+}
+
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.admin-table th {
+    background-color: #f5f5f5;
+    padding: 15px;
+    text-align: left;
+    font-weight: 600;
+    color: #333;
+    border-bottom: 1px solid #ddd;
+}
+
+.admin-table td {
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+    color: #666;
+}
+
+.admin-table tr:last-child td {
+    border-bottom: none;
+}
+
+.admin-table tr:hover {
+    background-color: #f9f9f9;
+}
+
+.status-badge {
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.status-ativo {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.status-inativo {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+.admin-empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 50px 0;
+    color: #6c757d;
+    display: none;
+}
+
+.admin-empty i {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    opacity: 0.5;
+}
+
+.admin-pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.btn-pagination {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn-pagination:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.paginas-container {
+    display: flex;
+    margin: 0 10px;
+}
+
+.pagina {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    margin: 0 5px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.pagina.ativa {
+    background-color: #0066cc;
+    color: #fff;
+    border-color: #0066cc;
+}
+
+/* Estilos para o formulário de gestor */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #333;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.password-container {
+    position: relative;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #6c757d;
+}
+
+.checkbox-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 5px;
+}
+
+.checkbox-item {
+    display: flex;
+    align-items: center;
+}
+
+.checkbox-item input {
+    width: auto;
+    margin-right: 10px;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.btn-cancelar {
+    background-color: #f8f9fa;
+    color: #6c757d;
+    padding: 10px 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Estilos para modais */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal.active {
+    display: flex;
+}
+
+.modal-content {
+    background-color: #fff;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 600px;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.modal-close {
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #6c757d;
+}
+
+.modal-body {
+    padding: 20px;
+}
+
+/* Responsividade */
+@media (max-width: 992px) {
+    .admin-content {
+        flex-direction: column;
+    }
+    
+    .admin-sidebar {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+    
+    .admin-menu {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .admin-menu-item {
+        border-left: none;
+        border-bottom: 3px solid transparent;
+    }
+    
+    .admin-menu-item.active {
+        border-left-color: transparent;
+        border-bottom-color: #0066cc;
+    }
+}
+
+@media (max-width: 768px) {
+    .admin-actions {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .admin-search {
+        max-width: 100%;
+    }
+    
+    .admin-search input {
+        width: 100%;
+    }
+    
+    .form-actions {
+        flex-direction: column;
+    }
+    
+    .btn-cancelar,
+    .btn-primary,
+    .btn-danger {
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+    }
+}

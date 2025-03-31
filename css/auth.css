@@ -1,0 +1,106 @@
+/* Estilos para autenticação e menus de administração */
+
+/* Dropdown do usuário */
+.user-dropdown,
+.admin-dropdown {
+    position: relative;
+}
+
+.user-menu,
+.admin-menu-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    color: #333;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: all 0.3s;
+}
+
+.user-menu:hover,
+.admin-menu-btn:hover {
+    background-color: rgba(0, 102, 204, 0.1);
+}
+
+.user-menu i,
+.admin-menu-btn i {
+    font-size: 1.1rem;
+}
+
+.user-menu .fa-user-circle {
+    font-size: 1.3rem;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 220px;
+    background-color: #fff;
+    border-radius: 4px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 10px 0;
+    z-index: 100;
+    display: none;
+    margin-top: 5px;
+}
+
+.dropdown-menu.active {
+    display: block;
+    animation: fadeIn 0.2s ease-in-out;
+}
+
+.dropdown-menu a {
+    display: flex !important;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 15px;
+    color: #333;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.dropdown-menu a:hover {
+    background-color: #f5f5f5;
+}
+
+.dropdown-menu a i {
+    width: 20px;
+    text-align: center;
+    color: #0066cc;
+}
+
+/* Menu de administração */
+.admin-menu-btn {
+    color: #0066cc;
+    font-weight: 500;
+}
+
+.admin-menu-btn i {
+    color: #0066cc;
+}
+
+/* Animação para os dropdowns */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .user-menu span,
+    .admin-menu-btn span {
+        display: none;
+    }
+    
+    .dropdown-menu {
+        width: 180px;
+    }
+}

@@ -1,0 +1,576 @@
+/* Reset e Estilos Gerais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f8f9fa;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+a {
+    text-decoration: none;
+    color: #0066cc;
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: #004080;
+}
+
+ul {
+    list-style: none;
+}
+
+section {
+    padding: 60px 0;
+}
+
+h2 {
+    font-size: 2.2rem;
+    margin-bottom: 30px;
+    text-align: center;
+    color: #333;
+}
+
+/* Cabeçalho */
+header {
+    background-color: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+}
+
+.logo h1 {
+    font-size: 1.8rem;
+    color: #0066cc;
+    font-weight: 700;
+}
+
+nav ul {
+    display: flex;
+    align-items: center;
+}
+
+nav ul li {
+    margin-left: 25px;
+}
+
+nav ul li a {
+    color: #333;
+    font-weight: 500;
+    padding: 5px 0;
+    position: relative;
+}
+
+nav ul li a.active,
+nav ul li a:hover {
+    color: #0066cc;
+}
+
+nav ul li a.active::after,
+nav ul li a:hover::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #0066cc;
+}
+
+.btn-login {
+    background-color: #0066cc;
+    color: #fff !important;
+    padding: 8px 20px !important;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.btn-login:hover {
+    background-color: #004080;
+}
+
+.btn-login:hover::after {
+    display: none;
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../img/banner-principal.jpg');
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    text-align: center;
+    padding: 100px 0;
+}
+
+.hero h2 {
+    font-size: 2.8rem;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* Carousel de Eventos */
+.eventos {
+    background-color: #fff;
+}
+
+.carousel-container {
+    position: relative;
+    max-width: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.carousel {
+    width: 100%;
+    overflow: hidden;
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-item {
+    min-width: 300px;
+    height: 350px;
+    margin: 0 15px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+    cursor: pointer;
+    position: relative;
+}
+
+.carousel-item:hover {
+    transform: translateY(-10px);
+}
+
+.carousel-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.carousel-item-content {
+    padding: 15px;
+    background-color: #fff;
+}
+
+.carousel-item h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.carousel-item p {
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.carousel-item .event-date {
+    color: #0066cc;
+    font-weight: 600;
+}
+
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.8);
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s;
+}
+
+.carousel-button:hover {
+    background-color: #fff;
+}
+
+.carousel-button.prev {
+    left: 10px;
+}
+
+.carousel-button.next {
+    right: 10px;
+}
+
+/* Seção de Destaques */
+.destaques {
+    background-color: #f0f5ff;
+}
+
+.cards {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.card {
+    flex: 1;
+    min-width: 250px;
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+}
+
+.card i {
+    font-size: 2.5rem;
+    color: #0066cc;
+    margin-bottom: 20px;
+}
+
+.card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+}
+
+.card p {
+    color: #666;
+}
+
+/* Rodapé */
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 60px 0 20px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 250px;
+    margin-bottom: 30px;
+}
+
+.footer-section h3 {
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.footer-section h3::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 50px;
+    height: 2px;
+    background-color: #0066cc;
+}
+
+.footer-section p {
+    color: #ccc;
+    margin-bottom: 15px;
+}
+
+.footer-section ul li {
+    margin-bottom: 10px;
+}
+
+.footer-section ul li a {
+    color: #ccc;
+    transition: color 0.3s;
+}
+
+.footer-section ul li a:hover {
+    color: #fff;
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+}
+
+.social-icons a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    transition: background-color 0.3s;
+}
+
+.social-icons a:hover {
+    background-color: #0066cc;
+}
+
+.social-icons i {
+    color: #fff;
+    font-size: 1.2rem;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-bottom p {
+    color: #999;
+    font-size: 0.9rem;
+}
+
+/* Responsividade */
+@media (max-width: 1024px) {
+    .container {
+        padding: 0 15px;
+    }
+    
+    .evento-card {
+        width: calc(33.33% - 20px);
+    }
+    
+    .footer-content {
+        gap: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    header .container {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    nav ul {
+        margin-top: 15px;
+    }
+    
+    nav ul li {
+        margin: 0 10px;
+    }
+    
+    .hero h2 {
+        font-size: 2rem;
+    }
+    
+    .cards, .footer-content {
+        flex-direction: column;
+    }
+    
+    .carousel-item {
+        min-width: 250px;
+    }
+    
+    .evento-card {
+        width: calc(50% - 20px);
+    }
+    
+    .evento-content {
+        flex-direction: column;
+    }
+    
+    .evento-imagem, .evento-info {
+        width: 100%;
+    }
+    
+    .evento-sidebar {
+        margin-top: 30px;
+    }
+    
+    .modal-content {
+        width: 90%;
+        max-width: 500px;
+    }
+    
+    .tabs {
+        flex-wrap: wrap;
+    }
+    
+    .tab-btn {
+        margin-bottom: 10px;
+    }
+}
+
+@media (max-width: 576px) {
+    h2 {
+        font-size: 1.8rem;
+    }
+    
+    header {
+        padding: 10px 0;
+    }
+    
+    .logo h1 {
+        font-size: 1.5rem;
+    }
+    
+    nav ul li {
+        margin: 0 5px;
+    }
+    
+    .btn-login {
+        padding: 6px 12px;
+        font-size: 0.9rem;
+    }
+    
+    .hero {
+        padding: 40px 0;
+    }
+    
+    .hero h2 {
+        font-size: 1.6rem;
+        margin-bottom: 15px;
+    }
+    
+    .hero p {
+        font-size: 1rem;
+        margin-bottom: 20px;
+    }
+    
+    .search-bar {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .search-bar input {
+        margin-right: 0;
+        margin-bottom: 10px;
+        width: 100%;
+    }
+    
+    .search-bar button {
+        width: 100%;
+    }
+    
+    .evento-card {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    
+    .evento-header h1 {
+        font-size: 1.5rem;
+    }
+    
+    .evento-meta {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .evento-meta span {
+        margin-bottom: 5px;
+    }
+    
+    .evento-acoes {
+        flex-direction: column;
+    }
+    
+    .evento-acoes a, .evento-acoes button {
+        width: 100%;
+        margin: 5px 0;
+        text-align: center;
+    }
+    
+    .modal-header h2 {
+        font-size: 1.3rem;
+    }
+    
+    .tabs {
+        overflow-x: auto;
+        padding-bottom: 10px;
+    }
+    
+    .tab-btn {
+        padding: 8px 12px;
+        font-size: 0.9rem;
+    }
+    
+    .inscritos-tabela {
+        font-size: 0.9rem;
+    }
+    
+    .inscritos-tabela th, .inscritos-tabela td {
+        padding: 8px;
+    }
+    
+    footer {
+        padding: 30px 0;
+    }
+    
+    .footer-logo h2 {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 375px) {
+    .logo h1 {
+        font-size: 1.3rem;
+    }
+    
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .hero h2 {
+        font-size: 1.4rem;
+    }
+    
+    .modal-content {
+        width: 95%;
+    }
+    
+    .modal-body {
+        padding: 10px;
+    }
+    
+    .inscritos-tabela {
+        font-size: 0.8rem;
+    }
+    
+    .inscritos-tabela th, .inscritos-tabela td {
+        padding: 6px 4px;
+    }
+}

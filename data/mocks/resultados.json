@@ -1,0 +1,157 @@
+[
+    {
+        "eventoId": 1,
+        "atletas": [
+            {
+                "numero": 101,
+                "nome": "Carlos Silva",
+                "categoria": "Maratona (42km)",
+                "horaSaida": "2025-04-15T07:00:00",
+                "horaChegada": "2025-04-15T10:32:45",
+                "tempoTotal": "03:32:45",
+                "colocacaoGeral": 1,
+                "colocacaoCategoria": 1
+            },
+            {
+                "numero": 102,
+                "nome": "Mariana Oliveira",
+                "categoria": "Maratona (42km)",
+                "horaSaida": "2025-04-15T07:00:00",
+                "horaChegada": "2025-04-15T10:45:12",
+                "tempoTotal": "03:45:12",
+                "colocacaoGeral": 2,
+                "colocacaoCategoria": 1
+            },
+            {
+                "numero": 103,
+                "nome": "João Pereira",
+                "categoria": "Meia Maratona (21km)",
+                "horaSaida": "2025-04-15T07:30:00",
+                "horaChegada": "2025-04-15T09:15:33",
+                "tempoTotal": "01:45:33",
+                "colocacaoGeral": 1,
+                "colocacaoCategoria": 1
+            },
+            {
+                "numero": 104,
+                "nome": "Ana Souza",
+                "categoria": "Corrida (10km)",
+                "horaSaida": "2025-04-15T08:00:00",
+                "horaChegada": "2025-04-15T08:47:21",
+                "tempoTotal": "00:47:21",
+                "colocacaoGeral": 1,
+                "colocacaoCategoria": 1
+            }
+        ]
+    },
+    {
+        "eventoId": 2,
+        "atletas": [
+            {
+                "numero": 201,
+                "nome": "Roberto Mendes",
+                "categoria": "Elite (120km)",
+                "horaSaida": "2025-05-22T06:30:00",
+                "horaChegada": "2025-05-22T10:15:42",
+                "tempoTotal": "03:45:42",
+                "colocacaoGeral": 1,
+                "colocacaoCategoria": 1
+            },
+            {
+                "numero": 202,
+                "nome": "Fernanda Lima",
+                "categoria": "Elite (120km)",
+                "horaSaida": "2025-05-22T06:30:00",
+                "horaChegada": "2025-05-22T10:22:18",
+                "tempoTotal": "03:52:18",
+                "colocacaoGeral": 2,
+                "colocacaoCategoria": 2
+            },
+            {
+                "numero": 203,
+                "nome": "Lucas Martins",
+                "categoria": "Amador Avançado (80km)",
+                "horaSaida": "2025-05-22T07:00:00",
+                "horaChegada": "2025-05-22T10:05:37",
+                "tempoTotal": "03:05:37",
+                "colocacaoGeral": 1,
+                "colocacaoCategoria": 1
+            }
+        ]
+    },
+    {
+        "eventoId": 3,
+        "atletas": [
+            {
+                "numero": 301,
+                "nome": "Patricia Santos",
+                "categoria": "Corrida (10km)",
+                "horaSaida": "2025-06-10T19:30:00",
+                "horaChegada": "2025-06-10T20:25:14",
+                "tempoTotal": "00:55:14",
+                "colocacaoGeral": 1,
+                "colocacaoCategoria": 1
+            },
+            {
+                "numero": 302,
+                "nome": "Marcelo Costa",
+                "categoria": "Corrida (5km)",
+                "horaSaida": "2025-06-10T19:30:00",
+                "horaChegada": "2025-06-10T19:55:42",
+                "tempoTotal": "00:25:42",
+                "colocacaoGeral": 1,
+                "colocacaoCategoria": 1
+            }
+        ]
+    },
+    {
+        "eventoId": 4,
+        "atletas": [
+            {
+                "numero": 401,
+                "nome": "Bruno Almeida",
+                "categoria": "Elite (60km)",
+                "horaSaida": "2025-07-18T08:00:00",
+                "horaChegada": "2025-07-18T10:45:23",
+                "tempoTotal": "02:45:23",
+                "colocacaoGeral": 1,
+                "colocacaoCategoria": 1
+            },
+            {
+                "numero": 402,
+                "nome": "Camila Ferreira",
+                "categoria": "Sport (40km)",
+                "horaSaida": "2025-07-18T08:30:00",
+                "horaChegada": "2025-07-18T10:15:07",
+                "tempoTotal": "01:45:07",
+                "colocacaoGeral": 1,
+                "colocacaoCategoria": 1
+            }
+        ]
+    },
+    {
+        "eventoId": 5,
+        "atletas": [
+            {
+                "numero": 501,
+                "nome": "Rafael Oliveira",
+                "categoria": "Meia Maratona (21km)",
+                "horaSaida": "2025-08-05T06:00:00",
+                "horaChegada": "2025-08-05T07:42:18",
+                "tempoTotal": "01:42:18",
+                "colocacaoGeral": 1,
+                "colocacaoCategoria": 1
+            },
+            {
+                "numero": 502,
+                "nome": "Juliana Ribeiro",
+                "categoria": "Corrida (10km)",
+                "horaSaida": "2025-08-05T06:30:00",
+                "horaChegada": "2025-08-05T07:25:41",
+                "tempoTotal": "00:55:41",
+                "colocacaoGeral": 1,
+                "colocacaoCategoria": 1
+            }
+        ]
+    }
+]

@@ -1,0 +1,418 @@
+[
+    {
+        "id": 1001,
+        "eventoId": 1,
+        "nome": "João Silva",
+        "categoria": "Maratona (42km)",
+        "status": "confirmado",
+        "dataInscricao": "2025-02-15T10:30:00"
+    },
+    {
+        "id": 1002,
+        "eventoId": 1,
+        "nome": "Maria Oliveira",
+        "categoria": "Meia Maratona (21km)",
+        "status": "confirmado",
+        "dataInscricao": "2025-02-16T14:20:00"
+    },
+    {
+        "id": 1003,
+        "eventoId": 1,
+        "nome": "Pedro Santos",
+        "categoria": "Corrida (10km)",
+        "status": "pendente",
+        "dataInscricao": "2025-02-17T09:15:00"
+    },
+    {
+        "id": 1004,
+        "eventoId": 1,
+        "nome": "Ana Costa",
+        "categoria": "Meia Maratona (21km)",
+        "status": "confirmado",
+        "dataInscricao": "2025-02-10T16:40:00"
+    },
+    {
+        "id": 1005,
+        "eventoId": 1,
+        "nome": "Carlos Ferreira",
+        "categoria": "Maratona (42km)",
+        "status": "cancelado",
+        "dataInscricao": "2025-02-05T11:05:00"
+    },
+    {
+        "id": 1006,
+        "eventoId": 1,
+        "nome": "Juliana Lima",
+        "categoria": "Corrida (10km)",
+        "status": "confirmado",
+        "dataInscricao": "2025-02-18T08:30:00"
+    },
+    {
+        "id": 1007,
+        "eventoId": 1,
+        "nome": "Ricardo Mendes",
+        "categoria": "Maratona (42km)",
+        "status": "confirmado",
+        "dataInscricao": "2025-02-20T09:45:00"
+    },
+    {
+        "id": 1008,
+        "eventoId": 1,
+        "nome": "Fernanda Almeida",
+        "categoria": "Meia Maratona (21km)",
+        "status": "confirmado",
+        "dataInscricao": "2025-02-22T11:20:00"
+    },
+    {
+        "id": 1009,
+        "eventoId": 1,
+        "nome": "Gabriel Rodrigues",
+        "categoria": "Corrida (10km)",
+        "status": "pendente",
+        "dataInscricao": "2025-02-23T15:10:00"
+    },
+    {
+        "id": 1010,
+        "eventoId": 1,
+        "nome": "Mariana Costa",
+        "categoria": "Meia Maratona (21km)",
+        "status": "confirmado",
+        "dataInscricao": "2025-02-25T08:50:00"
+    },
+    {
+        "id": 1011,
+        "eventoId": 1,
+        "nome": "Lucas Oliveira",
+        "categoria": "Maratona (42km)",
+        "status": "confirmado",
+        "dataInscricao": "2025-02-26T14:30:00"
+    },
+    {
+        "id": 1012,
+        "eventoId": 1,
+        "nome": "Camila Santos",
+        "categoria": "Corrida (10km)",
+        "status": "confirmado",
+        "dataInscricao": "2025-02-28T10:15:00"
+    },
+    {
+        "id": 2001,
+        "eventoId": 2,
+        "nome": "Roberto Alves",
+        "categoria": "Elite (120km)",
+        "status": "confirmado",
+        "dataInscricao": "2025-03-01T10:00:00"
+    },
+    {
+        "id": 2002,
+        "eventoId": 2,
+        "nome": "Fernanda Souza",
+        "categoria": "Amador (40km)",
+        "status": "confirmado",
+        "dataInscricao": "2025-03-02T14:30:00"
+    },
+    {
+        "id": 2003,
+        "eventoId": 2,
+        "nome": "André Martins",
+        "categoria": "Amador Avançado (80km)",
+        "status": "confirmado",
+        "dataInscricao": "2025-03-03T09:15:00"
+    },
+    {
+        "id": 2004,
+        "eventoId": 2,
+        "nome": "Carla Pereira",
+        "categoria": "Amador (40km)",
+        "status": "pendente",
+        "dataInscricao": "2025-03-04T16:20:00"
+    },
+    {
+        "id": 2005,
+        "eventoId": 2,
+        "nome": "Paulo Ribeiro",
+        "categoria": "Elite (120km)",
+        "status": "confirmado",
+        "dataInscricao": "2025-03-05T11:45:00"
+    },
+    {
+        "id": 2006,
+        "eventoId": 2,
+        "nome": "Aline Castro",
+        "categoria": "Amador Avançado (80km)",
+        "status": "confirmado",
+        "dataInscricao": "2025-03-06T08:30:00"
+    },
+    {
+        "id": 2007,
+        "eventoId": 2,
+        "nome": "Marcelo Gomes",
+        "categoria": "Elite (120km)",
+        "status": "cancelado",
+        "dataInscricao": "2025-03-07T13:10:00"
+    },
+    {
+        "id": 2008,
+        "eventoId": 2,
+        "nome": "Daniela Lima",
+        "categoria": "Amador (40km)",
+        "status": "confirmado",
+        "dataInscricao": "2025-03-08T10:25:00"
+    },
+    {
+        "id": 2009,
+        "eventoId": 2,
+        "nome": "Rodrigo Almeida",
+        "categoria": "Amador Avançado (80km)",
+        "status": "pendente",
+        "dataInscricao": "2025-03-09T15:40:00"
+    },
+    {
+        "id": 2010,
+        "eventoId": 2,
+        "nome": "Bianca Oliveira",
+        "categoria": "Amador (40km)",
+        "status": "confirmado",
+        "dataInscricao": "2025-03-10T09:55:00"
+    },
+    {
+        "id": 3001,
+        "eventoId": 3,
+        "nome": "Marcelo Gomes",
+        "categoria": "Corrida (10km)",
+        "status": "confirmado",
+        "dataInscricao": "2025-04-05T09:20:00"
+    },
+    {
+        "id": 3002,
+        "eventoId": 3,
+        "nome": "Patrícia Rocha",
+        "categoria": "Corrida (5km)",
+        "status": "pendente",
+        "dataInscricao": "2025-04-06T16:15:00"
+    },
+    {
+        "id": 3003,
+        "eventoId": 3,
+        "nome": "Felipe Cardoso",
+        "categoria": "Corrida (10km)",
+        "status": "confirmado",
+        "dataInscricao": "2025-04-07T11:30:00"
+    },
+    {
+        "id": 3004,
+        "eventoId": 3,
+        "nome": "Amanda Ferreira",
+        "categoria": "Corrida (5km)",
+        "status": "confirmado",
+        "dataInscricao": "2025-04-08T14:45:00"
+    },
+    {
+        "id": 3005,
+        "eventoId": 3,
+        "nome": "Gustavo Santos",
+        "categoria": "Corrida (10km)",
+        "status": "cancelado",
+        "dataInscricao": "2025-04-09T10:10:00"
+    },
+    {
+        "id": 3006,
+        "eventoId": 3,
+        "nome": "Larissa Oliveira",
+        "categoria": "Corrida (5km)",
+        "status": "confirmado",
+        "dataInscricao": "2025-04-10T15:25:00"
+    },
+    {
+        "id": 3007,
+        "eventoId": 3,
+        "nome": "Bruno Costa",
+        "categoria": "Corrida (10km)",
+        "status": "confirmado",
+        "dataInscricao": "2025-04-11T09:40:00"
+    },
+    {
+        "id": 3008,
+        "eventoId": 3,
+        "nome": "Natália Lima",
+        "categoria": "Corrida (5km)",
+        "status": "pendente",
+        "dataInscricao": "2025-04-12T13:55:00"
+    },
+    {
+        "id": 3009,
+        "eventoId": 3,
+        "nome": "Rafael Alves",
+        "categoria": "Corrida (10km)",
+        "status": "confirmado",
+        "dataInscricao": "2025-04-13T08:15:00"
+    },
+    {
+        "id": 3010,
+        "eventoId": 3,
+        "nome": "Carolina Martins",
+        "categoria": "Corrida (5km)",
+        "status": "confirmado",
+        "dataInscricao": "2025-04-14T16:30:00"
+    },
+    {
+        "id": 4001,
+        "eventoId": 4,
+        "nome": "Lucas Mendes",
+        "categoria": "Sport (40km)",
+        "status": "confirmado",
+        "dataInscricao": "2025-05-10T11:45:00"
+    },
+    {
+        "id": 4002,
+        "eventoId": 4,
+        "nome": "Isabela Ferreira",
+        "categoria": "Turismo (20km)",
+        "status": "confirmado",
+        "dataInscricao": "2025-05-11T09:30:00"
+    },
+    {
+        "id": 4003,
+        "eventoId": 4,
+        "nome": "Thiago Almeida",
+        "categoria": "Elite (60km)",
+        "status": "pendente",
+        "dataInscricao": "2025-05-12T14:15:00"
+    },
+    {
+        "id": 4004,
+        "eventoId": 4,
+        "nome": "Renata Costa",
+        "categoria": "Sport (40km)",
+        "status": "confirmado",
+        "dataInscricao": "2025-05-13T10:00:00"
+    },
+    {
+        "id": 4005,
+        "eventoId": 4,
+        "nome": "Eduardo Santos",
+        "categoria": "Elite (60km)",
+        "status": "confirmado",
+        "dataInscricao": "2025-05-14T15:45:00"
+    },
+    {
+        "id": 4006,
+        "eventoId": 4,
+        "nome": "Vanessa Lima",
+        "categoria": "Turismo (20km)",
+        "status": "cancelado",
+        "dataInscricao": "2025-05-15T08:30:00"
+    },
+    {
+        "id": 4007,
+        "eventoId": 4,
+        "nome": "Diego Oliveira",
+        "categoria": "Sport (40km)",
+        "status": "confirmado",
+        "dataInscricao": "2025-05-16T13:15:00"
+    },
+    {
+        "id": 4008,
+        "eventoId": 4,
+        "nome": "Letícia Martins",
+        "categoria": "Turismo (20km)",
+        "status": "confirmado",
+        "dataInscricao": "2025-05-17T11:00:00"
+    },
+    {
+        "id": 4009,
+        "eventoId": 4,
+        "nome": "Henrique Gomes",
+        "categoria": "Elite (60km)",
+        "status": "pendente",
+        "dataInscricao": "2025-05-18T16:45:00"
+    },
+    {
+        "id": 4010,
+        "eventoId": 4,
+        "nome": "Beatriz Alves",
+        "categoria": "Sport (40km)",
+        "status": "confirmado",
+        "dataInscricao": "2025-05-19T09:30:00"
+    },
+    {
+        "id": 5001,
+        "eventoId": 5,
+        "nome": "Camila Dias",
+        "categoria": "Meia Maratona (21km)",
+        "status": "confirmado",
+        "dataInscricao": "2025-06-01T08:00:00"
+    },
+    {
+        "id": 5002,
+        "eventoId": 5,
+        "nome": "Leonardo Ferreira",
+        "categoria": "Corrida (10km)",
+        "status": "confirmado",
+        "dataInscricao": "2025-06-02T14:30:00"
+    },
+    {
+        "id": 5003,
+        "eventoId": 5,
+        "nome": "Tatiana Oliveira",
+        "categoria": "Caminhada (5km)",
+        "status": "pendente",
+        "dataInscricao": "2025-06-03T10:15:00"
+    },
+    {
+        "id": 5004,
+        "eventoId": 5,
+        "nome": "Alexandre Costa",
+        "categoria": "Meia Maratona (21km)",
+        "status": "confirmado",
+        "dataInscricao": "2025-06-04T09:45:00"
+    },
+    {
+        "id": 5005,
+        "eventoId": 5,
+        "nome": "Jéssica Lima",
+        "categoria": "Corrida (10km)",
+        "status": "cancelado",
+        "dataInscricao": "2025-06-05T15:30:00"
+    },
+    {
+        "id": 5006,
+        "eventoId": 5,
+        "nome": "Vinícius Santos",
+        "categoria": "Caminhada (5km)",
+        "status": "confirmado",
+        "dataInscricao": "2025-06-06T11:00:00"
+    },
+    {
+        "id": 5007,
+        "eventoId": 5,
+        "nome": "Priscila Almeida",
+        "categoria": "Meia Maratona (21km)",
+        "status": "confirmado",
+        "dataInscricao": "2025-06-07T08:45:00"
+    },
+    {
+        "id": 5008,
+        "eventoId": 5,
+        "nome": "Fábio Martins",
+        "categoria": "Corrida (10km)",
+        "status": "pendente",
+        "dataInscricao": "2025-06-08T16:15:00"
+    },
+    {
+        "id": 5009,
+        "eventoId": 5,
+        "nome": "Débora Gomes",
+        "categoria": "Caminhada (5km)",
+        "status": "confirmado",
+        "dataInscricao": "2025-06-09T12:30:00"
+    },
+    {
+        "id": 5010,
+        "eventoId": 5,
+        "nome": "Maurício Ribeiro",
+        "categoria": "Meia Maratona (21km)",
+        "status": "confirmado",
+        "dataInscricao": "2025-06-10T09:15:00"
+    }
+]
