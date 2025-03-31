@@ -1,0 +1,61 @@
+/* Correções para imagens faltantes - usando URLs de imagens da internet */
+
+/* Imagens de fundo */
+.admin-header {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1517649763962-0c623066013b?q=80&w=1470&auto=format&fit=crop') !important;
+    background-size: cover !important;
+    background-position: center !important;
+}
+
+.inscricao-header {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1552674605-db6ffd4facb5?q=80&w=1470&auto=format&fit=crop') !important;
+    background-size: cover !important;
+    background-position: center !important;
+}
+
+.perfil-header {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1461896836934-ffe607ba8211?q=80&w=1470&auto=format&fit=crop') !important;
+    background-size: cover !important;
+    background-position: center !important;
+}
+
+.contato-header {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?q=80&w=1470&auto=format&fit=crop') !important;
+    background-size: cover !important;
+    background-position: center !important;
+}
+
+.login-container .login-image img {
+    content: url('https://images.unsplash.com/photo-1530549387789-4c1017266635?q=80&w=1470&auto=format&fit=crop') !important;
+}
+
+/* Imagens de eventos */
+img[src*="evento1.jpg"],
+img[src*="evento2.jpg"],
+img[src*="evento3.jpg"],
+img[src*="evento4.jpg"],
+img[src*="evento5.jpg"],
+img[src*="evento6.jpg"] {
+    content: url('https://images.unsplash.com/photo-1594882645126-14020914d58d?q=80&w=1470&auto=format&fit=crop') !important;
+}
+
+/* Placeholders */
+img[src*="evento-placeholder.jpg"] {
+    content: url('https://images.unsplash.com/photo-1594882645126-14020914d58d?q=80&w=1470&auto=format&fit=crop') !important;
+}
+
+img[src*="qrcode-placeholder.jpg"],
+img[src*="qrcode-pix.jpg"] {
+    content: url('https://upload.wikimedia.org/wikipedia/commons/d/d0/QR_code_for_mobile_English_Wikipedia.svg') !important;
+    max-width: 200px !important;
+}
+
+/* Logo */
+img[src*="logo.png"] {
+    content: url('https://via.placeholder.com/150x50/0066cc/ffffff?text=Meta+Esportes') !important;
+}
+
+/* Avatar placeholder */
+img[src*="avatar-placeholder.jpg"] {
+    content: url('https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mp&f=y') !important;
+}
