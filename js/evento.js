@@ -3,34 +3,22 @@ document.addEventListener('DOMContentLoaded', function() {
     const urlParams = new URLSearchParams(window.location.search);
     const eventoId = urlParams.get('id');
     
-    // Variáveis para armazenar os dados carregados
+    // Variáveis para armazenar os dados
     let eventos = [];
     let inscricoes = [];
     let resultados = [];
     
-    // Função para carregar os dados dos eventos
-    async function carregarDados() {
+    // Carregar dados diretamente (em vez de usar fetch)
+    function carregarDados() {
         try {
-            // Carregar dados dos eventos
-            const responseEventos = await fetch('/data/mocks/eventos.json');
-            if (!responseEventos.ok) {
-                throw new Error('Erro ao carregar dados dos eventos');
-            }
-            eventos = await responseEventos.json();
+            // Carregar dados dos eventos do localStorage ou usar dados padrão
+            eventos = JSON.parse(localStorage.getItem('eventos')) || getEventosPadrao();
             
-            // Carregar dados das inscrições
-            const responseInscricoes = await fetch('/data/mocks/inscricoes.json');
-            if (!responseInscricoes.ok) {
-                throw new Error('Erro ao carregar dados das inscrições');
-            }
-            inscricoes = await responseInscricoes.json();
+            // Carregar dados das inscrições do localStorage ou usar dados padrão
+            inscricoes = JSON.parse(localStorage.getItem('inscricoes')) || getInscricoesPadrao();
             
-            // Carregar dados dos resultados
-            const responseResultados = await fetch('/data/mocks/resultados.json');
-            if (!responseResultados.ok) {
-                throw new Error('Erro ao carregar dados dos resultados');
-            }
-            resultados = await responseResultados.json();
+            // Carregar dados dos resultados do localStorage ou usar dados padrão
+            resultados = JSON.parse(localStorage.getItem('resultados')) || getResultadosPadrao();
             
             // Filtrar inscrições pelo ID do evento
             const inscricoesDoEvento = inscricoes.filter(inscricao => inscricao.eventoId == eventoId);
@@ -47,6 +35,374 @@ document.addEventListener('DOMContentLoaded', function() {
                 </div>
             `;
         }
+    }
+    
+    // Função para obter dados padrão de eventos
+    function getEventosPadrao() {
+        return [
+            {
+                "id": 1,
+                "titulo": "Maratona São Paulo 2025",
+                "data": "15 de Abril, 2025",
+                "horario": "07:00",
+                "local": "Parque Ibirapuera",
+                "cidade": "São Paulo, SP",
+                "imagem": "img/maratonaSp.jpg",
+                "arquivoGPX": "percursos/maratona-sp-2025.gpx",
+                "descricao": "A Maratona São Paulo 2025 é um dos eventos mais esperados do calendário esportivo brasileiro. Com percurso que passa pelos principais pontos turísticos da cidade, a prova oferece distâncias de 42km, 21km e 10km, atendendo desde atletas profissionais até corredores amadores.",
+                "detalhes": "A largada será no Parque Ibirapuera, com percurso passando pela Avenida Paulista, Centro Histórico e retornando ao parque. Haverá pontos de hidratação a cada 3km e atendimento médico ao longo de todo o percurso.",
+                "categorias": ["Maratona (42km)", "Meia Maratona (21km)", "Corrida (10km)"],
+                "preco": "R$ 150,00 a R$ 250,00",
+                "organizador": "Associação Brasileira de Corridas",
+                "contato": "contato@maratonasaopaulo.com.br"
+            },
+            {
+                "id": 2,
+                "titulo": "Ciclismo Tour Rio 2025",
+                "data": "22 de Maio, 2025",
+                "horario": "06:30",
+                "local": "Praia de Copacabana",
+                "cidade": "Rio de Janeiro, RJ",
+                "imagem": "img/cicloTurismoRj.jpg",
+                "arquivoGPX": "percursos/tour-rio-2025.gpx",
+                "descricao": "O Tour Rio 2025 é a maior competição de ciclismo do estado do Rio de Janeiro. Com percursos deslumbrantes à beira-mar e subidas desafiadoras, o evento atrai ciclistas de todo o país e do exterior.",
+                "detalhes": "O percurso inclui a orla de Copacabana, Ipanema, Leblon, além de subidas desafiadoras como a Vista Chinesa e o Corcovado. Haverá suporte técnico e pontos de hidratação ao longo do trajeto.",
+                "categorias": ["Elite (120km)", "Amador Avançado (80km)", "Amador (40km)"],
+                "preco": "R$ 180,00 a R$ 300,00",
+                "organizador": "Federação de Ciclismo do Rio de Janeiro",
+                "contato": "info@tourrio.com.br"
+            },
+            {
+                "id": 3,
+                "titulo": "Corrida Noturna BH",
+                "data": "10 de Junho, 2025",
+                "horario": "19:30",
+                "local": "Praça da Liberdade",
+                "cidade": "Belo Horizonte, MG",
+                "imagem": "img/corridaNoturnaBh.jpg",
+                "arquivoGPX": "percursos/corrida-noturna-bh.gpx",
+                "descricao": "A Corrida Noturna BH é um evento único que transforma as ruas de Belo Horizonte em um espetáculo de luzes e energia. Com percurso iluminado e música ao vivo, a corrida oferece uma experiência inesquecível para os participantes.",
+                "detalhes": "O percurso passa pelos principais pontos turísticos da cidade iluminados especialmente para o evento. Todos os participantes receberão kits com itens luminosos para garantir a segurança e o visual da prova.",
+                "categorias": ["Corrida (10km)", "Corrida (5km)"],
+                "preco": "R$ 120,00",
+                "organizador": "BH Running Club",
+                "contato": "corridanoturna@bhrunning.com.br"
+            },
+            {
+                "id": 4,
+                "titulo": "Desafio Mountain Bike",
+                "data": "18 de Julho, 2025",
+                "horario": "08:00",
+                "local": "Parque Estadual do Rio Vermelho",
+                "cidade": "Florianópolis, SC",
+                "imagem": "img/desafioMtbFl.jpg",
+                "arquivoGPX": "percursos/desafio-mtb-floripa.gpx",
+                "descricao": "O Desafio Mountain Bike de Florianópolis é uma competição que explora as mais belas trilhas da Ilha da Magia. Com percursos técnicos e paisagens deslumbrantes, o evento é um dos mais aguardados pelos amantes do MTB.",
+                "detalhes": "O percurso inclui trilhas técnicas, single tracks, descidas radicais e subidas desafiadoras. A organização oferece suporte mecânico, pontos de hidratação e primeiros socorros ao longo de todo o trajeto.",
+                "categorias": ["Elite (60km)", "Sport (40km)", "Turismo (20km)"],
+                "preco": "R$ 150,00 a R$ 220,00",
+                "organizador": "SC Bike Association",
+                "contato": "desafio@scbike.org.br"
+            },
+            {
+                "id": 5,
+                "titulo": "Meia Maratona Salvador",
+                "data": "5 de Agosto, 2025",
+                "horario": "06:00",
+                "local": "Farol da Barra",
+                "cidade": "Salvador, BA",
+                "imagem": "img/meiaMaratonaSalvador.jpg",
+                "arquivoGPX": "percursos/meia-maratona-salvador.gpx",
+                "descricao": "A Meia Maratona de Salvador é uma celebração do esporte e da cultura baiana. Com percurso que passa pelos principais pontos históricos da primeira capital do Brasil, a prova oferece uma experiência única aos participantes.",
+                "detalhes": "O percurso passa pelo Farol da Barra, Pelourinho, Elevador Lacerda e outros pontos históricos. Haverá apresentações culturais ao longo do trajeto e uma grande festa na chegada.",
+                "categorias": ["Meia Maratona (21km)", "Corrida (10km)", "Caminhada (5km)"],
+                "preco": "R$ 130,00 a R$ 180,00",
+                "organizador": "Bahia Runners",
+                "contato": "info@meiamaratonasalvador.com.br"
+            }
+        ];
+    }
+    
+    // Função para obter dados padrão de inscrições
+    function getInscricoesPadrao() {
+        return [
+            {
+                "eventoId": 1,
+                "inscritos": [
+                    {
+                        "id": 1,
+                        "nome": "Carlos Silva",
+                        "email": "carlos.silva@email.com",
+                        "telefone": "(11) 98765-4321",
+                        "categoria": "Maratona (42km)",
+                        "dataInscricao": "2025-01-15T14:30:00",
+                        "status": "confirmado"
+                    },
+                    {
+                        "id": 2,
+                        "nome": "Ana Oliveira",
+                        "email": "ana.oliveira@email.com",
+                        "telefone": "(11) 91234-5678",
+                        "categoria": "Meia Maratona (21km)",
+                        "dataInscricao": "2025-01-16T10:15:00",
+                        "status": "confirmado"
+                    },
+                    {
+                        "id": 3,
+                        "nome": "Roberto Santos",
+                        "email": "roberto.santos@email.com",
+                        "telefone": "(11) 99876-5432",
+                        "categoria": "Corrida (10km)",
+                        "dataInscricao": "2025-01-18T16:45:00",
+                        "status": "pendente"
+                    }
+                ]
+            },
+            {
+                "eventoId": 2,
+                "inscritos": [
+                    {
+                        "id": 4,
+                        "nome": "Juliana Costa",
+                        "email": "juliana.costa@email.com",
+                        "telefone": "(21) 98765-4321",
+                        "categoria": "Elite (120km)",
+                        "dataInscricao": "2025-02-10T09:30:00",
+                        "status": "confirmado"
+                    },
+                    {
+                        "id": 5,
+                        "nome": "Pedro Almeida",
+                        "email": "pedro.almeida@email.com",
+                        "telefone": "(21) 91234-5678",
+                        "categoria": "Amador (40km)",
+                        "dataInscricao": "2025-02-12T14:20:00",
+                        "status": "confirmado"
+                    }
+                ]
+            },
+            {
+                "eventoId": 3,
+                "inscritos": [
+                    {
+                        "id": 6,
+                        "nome": "Fernanda Lima",
+                        "email": "fernanda.lima@email.com",
+                        "telefone": "(31) 98765-4321",
+                        "categoria": "Corrida (10km)",
+                        "dataInscricao": "2025-03-05T11:45:00",
+                        "status": "confirmado"
+                    }
+                ]
+            },
+            {
+                "eventoId": 4,
+                "inscritos": [
+                    {
+                        "id": 7,
+                        "nome": "Marcelo Souza",
+                        "email": "marcelo.souza@email.com",
+                        "telefone": "(48) 98765-4321",
+                        "categoria": "Sport (40km)",
+                        "dataInscricao": "2025-04-02T16:30:00",
+                        "status": "confirmado"
+                    },
+                    {
+                        "id": 8,
+                        "nome": "Camila Ferreira",
+                        "email": "camila.ferreira@email.com",
+                        "telefone": "(48) 91234-5678",
+                        "categoria": "Turismo (20km)",
+                        "dataInscricao": "2025-04-05T10:15:00",
+                        "status": "pendente"
+                    }
+                ]
+            },
+            {
+                "eventoId": 5,
+                "inscritos": [
+                    {
+                        "id": 9,
+                        "nome": "Rafael Oliveira",
+                        "email": "rafael.oliveira@email.com",
+                        "telefone": "(71) 98765-4321",
+                        "categoria": "Meia Maratona (21km)",
+                        "dataInscricao": "2025-05-10T09:45:00",
+                        "status": "confirmado"
+                    },
+                    {
+                        "id": 10,
+                        "nome": "Mariana Santos",
+                        "email": "mariana.santos@email.com",
+                        "telefone": "(71) 91234-5678",
+                        "categoria": "Corrida (10km)",
+                        "dataInscricao": "2025-05-12T14:30:00",
+                        "status": "confirmado"
+                    }
+                ]
+            }
+        ];
+    }
+    
+    // Função para obter dados padrão de resultados
+    function getResultadosPadrao() {
+        return [
+            {
+                "eventoId": 1,
+                "atletas": [
+                    {
+                        "numero": 101,
+                        "nome": "Carlos Silva",
+                        "categoria": "Maratona (42km)",
+                        "horaSaida": "2025-04-15T07:00:00",
+                        "horaChegada": "2025-04-15T10:32:45",
+                        "tempoTotal": "03:32:45",
+                        "colocacaoGeral": 1,
+                        "colocacaoCategoria": 1
+                    },
+                    {
+                        "numero": 102,
+                        "nome": "Mariana Oliveira",
+                        "categoria": "Maratona (42km)",
+                        "horaSaida": "2025-04-15T07:00:00",
+                        "horaChegada": "2025-04-15T10:45:12",
+                        "tempoTotal": "03:45:12",
+                        "colocacaoGeral": 2,
+                        "colocacaoCategoria": 1
+                    },
+                    {
+                        "numero": 103,
+                        "nome": "João Pereira",
+                        "categoria": "Meia Maratona (21km)",
+                        "horaSaida": "2025-04-15T07:30:00",
+                        "horaChegada": "2025-04-15T09:15:33",
+                        "tempoTotal": "01:45:33",
+                        "colocacaoGeral": 1,
+                        "colocacaoCategoria": 1
+                    },
+                    {
+                        "numero": 104,
+                        "nome": "Ana Souza",
+                        "categoria": "Corrida (10km)",
+                        "horaSaida": "2025-04-15T08:00:00",
+                        "horaChegada": "2025-04-15T08:47:21",
+                        "tempoTotal": "00:47:21",
+                        "colocacaoGeral": 1,
+                        "colocacaoCategoria": 1
+                    }
+                ]
+            },
+            {
+                "eventoId": 2,
+                "atletas": [
+                    {
+                        "numero": 201,
+                        "nome": "Roberto Mendes",
+                        "categoria": "Elite (120km)",
+                        "horaSaida": "2025-05-22T06:30:00",
+                        "horaChegada": "2025-05-22T10:15:42",
+                        "tempoTotal": "03:45:42",
+                        "colocacaoGeral": 1,
+                        "colocacaoCategoria": 1
+                    },
+                    {
+                        "numero": 202,
+                        "nome": "Fernanda Lima",
+                        "categoria": "Elite (120km)",
+                        "horaSaida": "2025-05-22T06:30:00",
+                        "horaChegada": "2025-05-22T10:22:18",
+                        "tempoTotal": "03:52:18",
+                        "colocacaoGeral": 2,
+                        "colocacaoCategoria": 2
+                    },
+                    {
+                        "numero": 203,
+                        "nome": "Lucas Martins",
+                        "categoria": "Amador Avançado (80km)",
+                        "horaSaida": "2025-05-22T07:00:00",
+                        "horaChegada": "2025-05-22T10:05:37",
+                        "tempoTotal": "03:05:37",
+                        "colocacaoGeral": 1,
+                        "colocacaoCategoria": 1
+                    }
+                ]
+            },
+            {
+                "eventoId": 3,
+                "atletas": [
+                    {
+                        "numero": 301,
+                        "nome": "Patricia Santos",
+                        "categoria": "Corrida (10km)",
+                        "horaSaida": "2025-06-10T19:30:00",
+                        "horaChegada": "2025-06-10T20:25:14",
+                        "tempoTotal": "00:55:14",
+                        "colocacaoGeral": 1,
+                        "colocacaoCategoria": 1
+                    },
+                    {
+                        "numero": 302,
+                        "nome": "Marcelo Costa",
+                        "categoria": "Corrida (5km)",
+                        "horaSaida": "2025-06-10T19:30:00",
+                        "horaChegada": "2025-06-10T19:55:42",
+                        "tempoTotal": "00:25:42",
+                        "colocacaoGeral": 1,
+                        "colocacaoCategoria": 1
+                    }
+                ]
+            },
+            {
+                "eventoId": 4,
+                "atletas": [
+                    {
+                        "numero": 401,
+                        "nome": "Bruno Almeida",
+                        "categoria": "Elite (60km)",
+                        "horaSaida": "2025-07-18T08:00:00",
+                        "horaChegada": "2025-07-18T10:45:23",
+                        "tempoTotal": "02:45:23",
+                        "colocacaoGeral": 1,
+                        "colocacaoCategoria": 1
+                    },
+                    {
+                        "numero": 402,
+                        "nome": "Camila Ferreira",
+                        "categoria": "Sport (40km)",
+                        "horaSaida": "2025-07-18T08:30:00",
+                        "horaChegada": "2025-07-18T10:15:07",
+                        "tempoTotal": "01:45:07",
+                        "colocacaoGeral": 1,
+                        "colocacaoCategoria": 1
+                    }
+                ]
+            },
+            {
+                "eventoId": 5,
+                "atletas": [
+                    {
+                        "numero": 501,
+                        "nome": "Rafael Oliveira",
+                        "categoria": "Meia Maratona (21km)",
+                        "horaSaida": "2025-08-05T06:00:00",
+                        "horaChegada": "2025-08-05T07:42:18",
+                        "tempoTotal": "01:42:18",
+                        "colocacaoGeral": 1,
+                        "colocacaoCategoria": 1
+                    },
+                    {
+                        "numero": 502,
+                        "nome": "Juliana Ribeiro",
+                        "categoria": "Corrida (10km)",
+                        "horaSaida": "2025-08-05T06:30:00",
+                        "horaChegada": "2025-08-05T07:25:41",
+                        "tempoTotal": "00:55:41",
+                        "colocacaoGeral": 1,
+                        "colocacaoCategoria": 1
+                    }
+                ]
+            }
+        ];
     }
     
     // Função para exibir os detalhes do evento
