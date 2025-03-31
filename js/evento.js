@@ -8,17 +8,68 @@ document.addEventListener('DOMContentLoaded', function() {
     let inscricoes = [];
     let resultados = [];
     
-    // Carregar dados diretamente (em vez de usar fetch)
+    // Detectar ambiente (GitHub Pages ou local)
+    const isGitHubPages = window.location.hostname.includes('github.io');
+    const basePath = isGitHubPages ? '/metaesportes.github.io' : '';
+    
+    // Carregar dados
     function carregarDados() {
         try {
-            // Carregar dados dos eventos do localStorage ou usar dados padrão
-            eventos = JSON.parse(localStorage.getItem('eventos')) || getEventosPadrao();
+            // Tentar carregar do localStorage primeiro
+            const eventosLocalStorage = localStorage.getItem('eventos');
+            const inscricoesLocalStorage = localStorage.getItem('inscricoes');
+            const resultadosLocalStorage = localStorage.getItem('resultados');
             
-            // Carregar dados das inscrições do localStorage ou usar dados padrão
-            inscricoes = JSON.parse(localStorage.getItem('inscricoes')) || getInscricoesPadrao();
+            if (eventosLocalStorage && inscricoesLocalStorage && resultadosLocalStorage) {
+                // Usar dados do localStorage
+                eventos = JSON.parse(eventosLocalStorage);
+                inscricoes = JSON.parse(inscricoesLocalStorage);
+                resultados = JSON.parse(resultadosLocalStorage);
+                
+                // Filtrar inscrições pelo ID do evento
+                const inscricoesDoEvento = inscricoes.filter(inscricao => inscricao.eventoId == eventoId);
+                
+                // Exibir os detalhes do evento
+                exibirDetalhesEvento(eventos, eventoId, inscricoesDoEvento);
+            } else {
+                // Carregar dados dos arquivos JSON
+                carregarDadosDeArquivos();
+            }
+        } catch (error) {
+            console.error('Erro ao carregar dados do localStorage:', error);
+            // Tentar carregar dos arquivos JSON como fallback
+            carregarDadosDeArquivos();
+        }
+    }
+    
+    // Função para carregar dados dos arquivos JSON
+    async function carregarDadosDeArquivos() {
+        try {
+            // Carregar dados dos eventos
+            const responseEventos = await fetch(`${basePath}/data/mocks/eventos.json`);
+            if (!responseEventos.ok) {
+                throw new Error('Erro ao carregar dados dos eventos');
+            }
+            eventos = await responseEventos.json();
             
-            // Carregar dados dos resultados do localStorage ou usar dados padrão
-            resultados = JSON.parse(localStorage.getItem('resultados')) || getResultadosPadrao();
+            // Carregar dados das inscrições
+            const responseInscricoes = await fetch(`${basePath}/data/mocks/inscricoes.json`);
+            if (!responseInscricoes.ok) {
+                throw new Error('Erro ao carregar dados das inscrições');
+            }
+            inscricoes = await responseInscricoes.json();
+            
+            // Carregar dados dos resultados
+            const responseResultados = await fetch(`${basePath}/data/mocks/resultados.json`);
+            if (!responseResultados.ok) {
+                throw new Error('Erro ao carregar dados dos resultados');
+            }
+            resultados = await responseResultados.json();
+            
+            // Salvar no localStorage para uso futuro
+            localStorage.setItem('eventos', JSON.stringify(eventos));
+            localStorage.setItem('inscricoes', JSON.stringify(inscricoes));
+            localStorage.setItem('resultados', JSON.stringify(resultados));
             
             // Filtrar inscrições pelo ID do evento
             const inscricoesDoEvento = inscricoes.filter(inscricao => inscricao.eventoId == eventoId);
@@ -26,7 +77,26 @@ document.addEventListener('DOMContentLoaded', function() {
             // Exibir os detalhes do evento
             exibirDetalhesEvento(eventos, eventoId, inscricoesDoEvento);
         } catch (error) {
-            console.error('Erro ao carregar dados:', error);
+            console.error('Erro ao carregar dados dos arquivos:', error);
+            // Como último recurso, usar dados padrão
+            usarDadosPadrao();
+        }
+    }
+    
+    // Função para usar dados padrão como último recurso
+    function usarDadosPadrao() {
+        try {
+            eventos = getEventosPadrao();
+            inscricoes = getInscricoesPadrao();
+            resultados = getResultadosPadrao();
+            
+            // Filtrar inscrições pelo ID do evento
+            const inscricoesDoEvento = inscricoes.filter(inscricao => inscricao.eventoId == eventoId);
+            
+            // Exibir os detalhes do evento
+            exibirDetalhesEvento(eventos, eventoId, inscricoesDoEvento);
+        } catch (error) {
+            console.error('Erro ao usar dados padrão:', error);
             document.getElementById('evento-detalhes').innerHTML = `
                 <div class="erro-evento">
                     <h2>Erro ao carregar dados do evento</h2>
@@ -47,8 +117,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 "horario": "07:00",
                 "local": "Parque Ibirapuera",
                 "cidade": "São Paulo, SP",
-                "imagem": "img/maratonaSp.jpg",
-                "arquivoGPX": "percursos/maratona-sp-2025.gpx",
+                "imagem": `${basePath}/img/maratonaSp.jpg`,
+                "arquivoGPX": `${basePath}/percursos/maratona-sp-2025.gpx`,
                 "descricao": "A Maratona São Paulo 2025 é um dos eventos mais esperados do calendário esportivo brasileiro. Com percurso que passa pelos principais pontos turísticos da cidade, a prova oferece distâncias de 42km, 21km e 10km, atendendo desde atletas profissionais até corredores amadores.",
                 "detalhes": "A largada será no Parque Ibirapuera, com percurso passando pela Avenida Paulista, Centro Histórico e retornando ao parque. Haverá pontos de hidratação a cada 3km e atendimento médico ao longo de todo o percurso.",
                 "categorias": ["Maratona (42km)", "Meia Maratona (21km)", "Corrida (10km)"],
@@ -63,8 +133,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 "horario": "06:30",
                 "local": "Praia de Copacabana",
                 "cidade": "Rio de Janeiro, RJ",
-                "imagem": "img/cicloTurismoRj.jpg",
-                "arquivoGPX": "percursos/tour-rio-2025.gpx",
+                "imagem": `${basePath}/img/cicloTurismoRj.jpg`,
+                "arquivoGPX": `${basePath}/percursos/tour-rio-2025.gpx`,
                 "descricao": "O Tour Rio 2025 é a maior competição de ciclismo do estado do Rio de Janeiro. Com percursos deslumbrantes à beira-mar e subidas desafiadoras, o evento atrai ciclistas de todo o país e do exterior.",
                 "detalhes": "O percurso inclui a orla de Copacabana, Ipanema, Leblon, além de subidas desafiadoras como a Vista Chinesa e o Corcovado. Haverá suporte técnico e pontos de hidratação ao longo do trajeto.",
                 "categorias": ["Elite (120km)", "Amador Avançado (80km)", "Amador (40km)"],
@@ -79,8 +149,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 "horario": "19:30",
                 "local": "Praça da Liberdade",
                 "cidade": "Belo Horizonte, MG",
-                "imagem": "img/corridaNoturnaBh.jpg",
-                "arquivoGPX": "percursos/corrida-noturna-bh.gpx",
+                "imagem": `${basePath}/img/corridaNoturnaBh.jpg`,
+                "arquivoGPX": `${basePath}/percursos/corrida-noturna-bh.gpx`,
                 "descricao": "A Corrida Noturna BH é um evento único que transforma as ruas de Belo Horizonte em um espetáculo de luzes e energia. Com percurso iluminado e música ao vivo, a corrida oferece uma experiência inesquecível para os participantes.",
                 "detalhes": "O percurso passa pelos principais pontos turísticos da cidade iluminados especialmente para o evento. Todos os participantes receberão kits com itens luminosos para garantir a segurança e o visual da prova.",
                 "categorias": ["Corrida (10km)", "Corrida (5km)"],
@@ -95,8 +165,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 "horario": "08:00",
                 "local": "Parque Estadual do Rio Vermelho",
                 "cidade": "Florianópolis, SC",
-                "imagem": "img/desafioMtbFl.jpg",
-                "arquivoGPX": "percursos/desafio-mtb-floripa.gpx",
+                "imagem": `${basePath}/img/desafioMtbFl.jpg`,
+                "arquivoGPX": `${basePath}/percursos/desafio-mtb-floripa.gpx`,
                 "descricao": "O Desafio Mountain Bike de Florianópolis é uma competição que explora as mais belas trilhas da Ilha da Magia. Com percursos técnicos e paisagens deslumbrantes, o evento é um dos mais aguardados pelos amantes do MTB.",
                 "detalhes": "O percurso inclui trilhas técnicas, single tracks, descidas radicais e subidas desafiadoras. A organização oferece suporte mecânico, pontos de hidratação e primeiros socorros ao longo de todo o trajeto.",
                 "categorias": ["Elite (60km)", "Sport (40km)", "Turismo (20km)"],
@@ -111,8 +181,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 "horario": "06:00",
                 "local": "Farol da Barra",
                 "cidade": "Salvador, BA",
-                "imagem": "img/meiaMaratonaSalvador.jpg",
-                "arquivoGPX": "percursos/meia-maratona-salvador.gpx",
+                "imagem": `${basePath}/img/meiaMaratonaSalvador.jpg`,
+                "arquivoGPX": `${basePath}/percursos/meia-maratona-salvador.gpx`,
                 "descricao": "A Meia Maratona de Salvador é uma celebração do esporte e da cultura baiana. Com percurso que passa pelos principais pontos históricos da primeira capital do Brasil, a prova oferece uma experiência única aos participantes.",
                 "detalhes": "O percurso passa pelo Farol da Barra, Pelourinho, Elevador Lacerda e outros pontos históricos. Haverá apresentações culturais ao longo do trajeto e uma grande festa na chegada.",
                 "categorias": ["Meia Maratona (21km)", "Corrida (10km)", "Caminhada (5km)"],
@@ -432,7 +502,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Construir o HTML com os detalhes do evento
         const eventoHTML = `
             <div class="evento-header">
-                <img src="${evento.imagem}" alt="${evento.titulo}" onerror="this.src='img/evento-placeholder.jpg'">
+                <img src="${evento.imagem}" alt="${evento.titulo}" onerror="this.src='${basePath}/img/evento-placeholder.jpg'">
                 <div class="evento-header-overlay">
                     <h1>${evento.titulo}</h1>
                     <div class="evento-info">
